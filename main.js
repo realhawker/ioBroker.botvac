@@ -259,6 +259,10 @@ adapter.on('stateChange', function (id, state) {
                 allRobots[robotName].spotRepeat = state.val;
                 adapter.setState(id, state.val, true);
                 break;
+            case 'noGoLines':
+                allRobots[robotName].noGoLines = state.val;
+                adapter.setState(id, state.val, true);
+                break;
             default:
                 adapter.log.warn('unknown command: ' + command);
                 return;
@@ -557,7 +561,16 @@ function main() {
                                         def: false,
                                         role: 'switch'
                                     }
-                                }
+                                },
+                                'noGoLines': {
+                                    common: {
+                                        type: 'boolean',
+                                        read: true,
+                                        write: true,
+                                        def: false,
+                                        role: 'switch'
+                                    }
+                                },
                             }
                         }
                     };
