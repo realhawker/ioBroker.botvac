@@ -634,7 +634,7 @@ function updateRobot(robot, callback) {
     }
     robot.getState(function (error, state) {
         if (error || !state) {
-            adapter.log.warn('could not update robot ' + robot.name);
+            adapter.log.warn('could not update robot ' + robot.name + ': ' + JSON.stringify(error));
             adapter.setState(robot.name + '.status.reachable', true, false);
             restart(pollInterval);
             if (typeof callback === 'function') {
