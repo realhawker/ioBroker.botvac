@@ -647,7 +647,7 @@ function updateRobot(robot, callback) {
         adapter.setState(robot.name + '.status.error', state.error, true);
         adapter.setState(robot.name + '.status.state', state.state, true);
         adapter.setState(robot.name + '.status.action', state.action, true);
-        var lastCleaning = state.cleaning.category === 1 ? 'manual' : state.cleaning.category === 2 ? 'auto' : 'spot';
+        var lastCleaning = state.cleaning.category === 1 ? 'manual' : state.cleaning.category === 2 ? 'house' : state.cleaning.category === 4 ? 'house with nogo' : 'spot';
         lastCleaning += state.cleaning.mode === 1 ? ' eco' : ' turbo';
         lastCleaning += state.cleaning.modifier === 2 ? ' x2' : '';
         adapter.setState(robot.name + '.status.lastCleaning', lastCleaning, true);
