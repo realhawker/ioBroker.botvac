@@ -671,6 +671,7 @@ function updateRobot(robot, callback) {
         adapter.setState(robot.name + '.status.dockHasBeenSeen', state.details.dockHasBeenSeen, true);
         adapter.setState(robot.name + '.status.charge', state.details.charge, true);
         adapter.setState(robot.name + '.status.canStart', state.availableCommands.start, true);
+        adapter.setState(robot.name + '.commands.noGoLines', state.cleaning.category === 4, true);
         if (state.availableCommands.start) {
             adapter.setState(robot.name + '.commands.clean', false, true);
             adapter.setState(robot.name + '.commands.cleanSpot', false, true);
